@@ -5,10 +5,12 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-const skillsRouter = require('./routes/skills');
+const peopleRouter = require('./routes/people');
 
 
 var app = express();
+// import bootstaro
+app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -21,7 +23,7 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/skills', skillsRouter)
+app.use('/people', peopleRouter)
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
