@@ -9,7 +9,7 @@ const peopleRouter = require('./routes/people');
 
 
 var app = express();
-// import bootstaro
+// import bootstrap
 app.use('/css', express.static(__dirname + '/node_modules/bootstrap/dist/css'));
 
 // view engine setup
