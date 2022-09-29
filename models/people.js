@@ -19,6 +19,8 @@ for (let i = 0; i < 100; i++) {
     status: ["Online", "Offline"][Math.floor(Math.random() * 2)],
     position: ["Senior", "Junior"][Math.floor(Math.random() * 2)],
     image: faker.image.people(1234, 2345, true),
+    phone: faker.phone.number(),
+    employeeId: faker.finance.account(),
   };
   person.email = faker.internet.email(person.firstName, person.lastName);
   people.push(person);
