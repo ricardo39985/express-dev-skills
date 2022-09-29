@@ -1,13 +1,12 @@
 module.exports = {
   getAll,
   getOne,
+  create
 };
-
 
 const { faker } = require("@faker-js/faker");
 const { v4: uuidv4 } = require("uuid");
 const people = [];
-
 
 for (let i = 0; i < 100; i++) {
   let person = {
@@ -30,7 +29,23 @@ function getAll() {
 }
 
 function getOne(id) {
-  console.log(id)
-  console.log(people.find(person => person.id === id))
-   return people.find(person => person.id === id);
+  console.log(id);
+  console.log(people.find((person) => person.id === id));
+  return people.find((person) => person.id === id);
+}
+function create(newPersonObj) {
+  let newPerson = {
+    id: uuidv4(),
+    department: faker.commerce.department(),
+    job: faker.name.jobTitle(),
+    status: ["Online", "Offline"][Math.floor(Math.random() * 2)],
+    image: faker.image.people(1234, 2345, true),
+    phone: faker.phone.number(),
+    employeeId: faker.finance.account(),
+  };
+  people.push({
+    ...newPerson,
+    ...newPersonObj,
+  });
+  return people[people.length-1].id
 }
