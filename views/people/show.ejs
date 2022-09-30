@@ -10,36 +10,52 @@
             <div class="col-lg-6">
                 <div class="about-text go-to">
                     <h3 class="dark-color">About Me</h3>
-                    <h6 class="theme-color lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque odit nobis porro incidunt fuga sed itaque, eveniet error quisquam sequi perspiciatis aperiam! Corrupti magnam quae odio laudantium laboriosam architecto delectus.</h6>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis magni quaerat modi, earum suscipit obcaecati consequatur voluptates eveniet ad, sit non! Ullam illum fugiat porro laboriosam error cum itaque veritatis!.</p>
+                    <h6 class="theme-color lead">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Atque odit
+                        nobis porro incidunt fuga sed itaque, eveniet error quisquam sequi perspiciatis aperiam!
+                        Corrupti magnam quae odio laudantium laboriosam architecto delectus.</h6>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis magni quaerat modi, earum
+                        suscipit obcaecati consequatur voluptates eveniet ad, sit non! Ullam illum fugiat porro
+                        laboriosam error cum itaque veritatis!.</p>
                     <div class="row about-list">
                         <div class="col-md-6">
                             <div class="media">
                                 <label>Name</label>
-                                <p><%= `${person.firstName} ${person.lastName}` %> </p>
+                                <p>
+                                    <%= `${person.firstName} ${person.lastName}` %>
+                                </p>
                             </div>
                             <div class="media">
                                 <label>Department</label>
-                                <p><%= person.department %> </p>
+                                <p>
+                                    <%= person.department %>
+                                </p>
                             </div>
                             <div class="media">
                                 <label>Position</label>
-                                <p><%= person.job %> </p>
+                                <p>
+                                    <%= person.job %>
+                                </p>
                             </div>
 
                         </div>
                         <div class="col-md-6">
                             <div class="media">
                                 <label>E-mail</label>
-                                <p><%= person.email %> </p>
+                                <p>
+                                    <%= person.email %>
+                                </p>
                             </div>
                             <div class="media">
                                 <label>Phone</label>
-                                <p><%= person.phone %> </p>
+                                <p>
+                                    <%= person.phone %>
+                                </p>
                             </div>
                             <div class="media">
                                 <label>Employee ID</label>
-                                <p><%= person.employeeId %> </p>
+                                <p>
+                                    <%= person.employeeId %>
+                                </p>
                             </div>
                             <div class="media">
                                 <label>Status</label>
@@ -61,4 +77,25 @@
             </div>
         </div>
     </div>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="col col-lg-2">
+                <a href="" class="btn btn-outline-danger btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                    delete
+                </a>
+            </div>
+            <div class="col col-lg-2">
+                <a h class="btn btn-outline-warning btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                    Edit
+                </a>
+            </div>
+            <div class="col-md-auto">
+                <a href="people/<%= person.id %> " class="btn btn-outline-primary btn-rounded btn-sm fw-bold"
+                    data-mdb-ripple-color="dark">
+                    View
+                </a>
+            </div>
+        </div>
+    </div>
+
 </section>
