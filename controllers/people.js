@@ -40,7 +40,6 @@ function deletePerson(req, res) {
 }
 
 function update(req, res) {
-  console.log(req.body);
   people.update(req.params.id, req.body);
   res.redirect(`/people/${req.params.id}`);
 }
