@@ -8,5 +8,6 @@ router.get("/new", peopleCtrl.new);
 router.get("/:id", peopleCtrl.show);
 router.get("/edit/:id", peopleCtrl.edit);
 router.post("/", peopleCtrl.create);
+router.delete('/:id', peopleCtrl.delete)
 
 module.exports = router;

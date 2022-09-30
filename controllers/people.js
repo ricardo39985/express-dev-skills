@@ -5,6 +5,7 @@ module.exports = {
   edit,
   new: newPerson,
   create,
+  delete: deletePerson,
 };
 function index(req, res) {
   res.render("people/index", { title: "All people", people: people.getAll() });
@@ -23,6 +24,10 @@ function newPerson(req, res) {
 }
 function create(req, res) {
   let newEployeeId = people.create(req.body);
-  console.log(newEployeeId)
+  console.log(newEployeeId);
   res.redirect(`/people/${newEployeeId}`);
+}
+function deletePerson(req, res) {
+  people.deleteOne(req.params.id);
+  res.redirect('/people')
 }

@@ -1,7 +1,8 @@
 module.exports = {
   getAll,
   getOne,
-  create
+  create,
+  deleteOne,
 };
 
 const { faker } = require("@faker-js/faker");
@@ -29,8 +30,6 @@ function getAll() {
 }
 
 function getOne(id) {
-  console.log(id);
-  console.log(people.find((person) => person.id === id));
   return people.find((person) => person.id === id);
 }
 function create(newPersonObj) {
@@ -47,5 +46,10 @@ function create(newPersonObj) {
     ...newPerson,
     ...newPersonObj,
   });
-  return people[people.length-1].id
+  return people[people.length - 1].id;
+}
+
+function deleteOne(id) {
+  let personIndex = people.findIndex((p) => p.id === id);
+  people.splice(personIndex, 1);
 }
