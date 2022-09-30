@@ -1,11 +1,57 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+
+<head>
+  <title>
+    <%= title %>
+  </title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+  <script defer src="/node_modules/bootstrap/dist/js/bootstrap.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="/css/bootstrap.min.css" />
+
+</head>
+
+<body style="background-color: rgb(98, 120, 232);">
+  <nav class="navbar navbar-expand-lg navbar-light ">
+    <div class="container-fluid">
+
+      <div class="" id="navbarExample01">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" aria-current="page" href="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/people">Staff</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/people/new">Add New</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Github</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Background image -->
+  <div id="intro-example" class="p-5 rounded-3 text-center bg-image">
+    <div class="mask"">
+      <div class="d-flex justify-content-center align-items-center h-100">
+        <div class="text-white">
+          <h1 class="mb-3">Track all your staff in one place</h1>
+          <h5 class="mb-4">Fast, simple, free</h5>
+          <a class="btn btn-outline-light btn-lg m-2" href="/people" role="button"
+            rel="nofollow" >View All Employees</a>
+          <a class="btn btn-outline-light btn-lg m-2" href="/people/new"
+            role="button">Add Employee</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Background image -->
+  </header>
+</body>
+
 </html>
