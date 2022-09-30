@@ -1,4 +1,4 @@
-const people = require("../models/people");
+const people = require('../models/people');
 module.exports = {
   index,
   show,
@@ -9,25 +9,25 @@ module.exports = {
   update,
 };
 function index(req, res) {
-  res.render("people/index", { title: "All people", people: people.getAll() });
+  res.render('people/index', { title: 'All people', people: people.getAll() });
 }
 function show(req, res) {
-  if (!people.getOne(req.params.id)) res.redirect("/people");
-  res.render("people/show", {
-    title: "Details",
+  if (!people.getOne(req.params.id)) res.redirect('/people');
+  res.render('people/show', {
+    title: 'Details',
     person: people.getOne(req.params.id),
   });
 }
 function edit(req, res) {
-  if (!people.getOne(req.params.id)) res.redirect("/people");
+  if (!people.getOne(req.params.id)) res.redirect('/people');
 
-  res.render("people/edit", {
-    title: "Edit",
+  res.render('people/edit', {
+    title: 'Edit',
     person: people.getOne(req.params.id),
   });
 }
 function newPerson(req, res) {
-  res.render("people/new", {});
+  res.render('people/new', {});
 }
 function create(req, res) {
   let newEployeeId = people.create(req.body);
@@ -36,7 +36,7 @@ function create(req, res) {
 }
 function deletePerson(req, res) {
   people.deleteOne(req.params.id);
-  res.redirect("/people");
+  res.redirect('/people');
 }
 
 function update(req, res) {
