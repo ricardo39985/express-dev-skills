@@ -53,18 +53,21 @@
                     <td>
                         <%=person.position %>
                     </td>
-                    <td class="fs-2 ">
-                        <a href="people/<%= person.id %> " class="btn btn-outline-primary btn-rounded btn-sm fw-bold"
-                            data-mdb-ripple-color="dark">
+                    <td class="d-flex ">
+                        <a style="padding: 3; height: 30px; margin-right: 6px ;" href="people/<%= person.id %> "
+                            class="btn btn-outline-primary btn-rounded btn-sm " data-mdb-ripple-color="dark">
                             View
                         </a>
-                        <a h class="btn btn-outline-warning btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                        <a style="padding: 3; margin-right: 6px; height: 30px;"
+                            class="btn btn-outline-warning btn-rounded btn-sm " data-mdb-ripple-color="dark">
                             Edit
                         </a>
-                        <a href="" class="btn btn-outline-danger btn-rounded btn-sm fw-bold"
-                            data-mdb-ripple-color="dark">
-                            delete
-                        </a>
+                        <form action="/people/<%= person.id %>?_method=DELETE" method="post">
+                            <button class="btn btn-outline-danger btn-rounded btn-sm fw-bold" data-mdb-r
+                                ipple-color="dark">
+                                Delete
+                            </button>
+                        </form>
                     </td>
                 </tr>
                 <%}); %>
