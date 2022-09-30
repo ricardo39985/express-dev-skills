@@ -9,5 +9,7 @@ router.get("/:id", peopleCtrl.show);
 router.get("/edit/:id", peopleCtrl.edit);
 router.post("/", peopleCtrl.create);
 router.delete('/:id', peopleCtrl.delete)
+router.get("/:id/edit", peopleCtrl.edit);
+
 
 module.exports = router;
