@@ -11,6 +11,7 @@ function index(req, res) {
   res.render("people/index", { title: "All people", people: people.getAll() });
 }
 function show(req, res) {
+  if(!(people.getOne(req.params.id))) res.redirect('/people')
   res.render("people/show", {
     title: "Details",
     person: people.getOne(req.params.id),
