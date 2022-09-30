@@ -1,0 +1,77 @@
+<div
+    style="background: #828282; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+    <pre style="margin: 0; line-height: 125%">&lt;div class=&quot;d-flex flex-row-reverse my-4 fs-3 &quot;&gt;
+    &lt;a class=&quot;btn btn-outline-success&quot; href=&quot;people/new&quot;&gt;Add Employee&lt;/a&gt;
+    &lt;a class=&quot;btn btn-outline-primary mmargin-right-2&quot; href=&quot;/&quot;&gt;Back&lt;/a&gt;
+&lt;/div&gt;
+&lt;div &gt;
+    &lt;table class=&quot;table align-middle mb-0 bg-gray table table-hover&quot;&gt;
+        &lt;thead class=&quot;bg-primary fs-3 text-white&quot;&gt;
+            &lt;tr&gt;
+                &lt;th&gt;Name&lt;/th&gt;
+                &lt;th&gt;Title&lt;/th&gt;
+                &lt;th&gt;Status&lt;/th&gt;
+                &lt;th&gt;Seniority&lt;/th&gt;
+                &lt;th&gt;Actions&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody&gt;
+            <span style="color: #557799">&lt;%</span> people<span style="color: #333333">.</span>forEach(person<span style="color: #333333">=&gt;</span> {<span style="color: #557799">%&gt;</span>
+                &lt;tr&gt;
+                    &lt;td&gt;
+                        &lt;div class=&quot;d-flex align-items-center&quot;&gt;
+                            &lt;img src=<span style="color: #557799">&lt;%=</span>person<span style="color: #333333">.</span>image <span style="color: #557799">%&gt;</span> class=&quot;rounded-circle&quot; alt=&quot;&quot;
+                            style=&quot;width: 45px; height: 45px&quot; /&gt;
+                            &lt;div class=&quot;ms-3&quot;&gt;
+                                &lt;p class=&quot;fw-bold mb-1&quot;&gt;
+                                    <span style="color: #557799">&lt;%=</span> <span style="background-color: #fff0f0">`${person.firstName} ${person.lastName}`</span> <span style="color: #557799">%&gt;</span>
+                                &lt;/p&gt;
+                                &lt;p class=&quot;text-muted mb-0&quot;&gt;
+                                    <span style="color: #557799">&lt;%=</span> person<span style="color: #333333">.</span>email <span style="color: #557799">%&gt;</span>
+                                &lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        &lt;p class=&quot;fw-normal mb-1&quot;&gt;
+                            <span style="color: #557799">&lt;%=</span> person<span style="color: #333333">.</span>job <span style="color: #557799">%&gt;</span>
+                        &lt;/p&gt;
+                        &lt;p class=&quot;text-muted mb-0&quot;&gt;
+                            <span style="color: #557799">&lt;%=</span> person<span style="color: #333333">.</span>department <span style="color: #557799">%&gt;</span>
+                        &lt;/p&gt;
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        <span style="color: #557799">&lt;%</span> <span style="color: #008800; font-weight: bold">if</span> (person<span style="color: #333333">.</span>status<span style="color: #333333">===</span><span style="background-color: #fff0f0">&#39;Online&#39;</span> ) {<span style="color: #557799">%&gt;</span>
+                            &lt;span class=&quot;badge text-bg-success&quot;&gt;Online&lt;/span&gt;
+
+                            <span style="color: #557799">&lt;%</span> } <span style="color: #008800; font-weight: bold">else</span> {<span style="color: #557799">%&gt;</span>
+                                &lt;span class=&quot;badge text-bg-secondary&quot;&gt;Offline&lt;/span&gt;
+                                <span style="color: #557799">&lt;%</span> } <span style="color: #557799">%&gt;</span>
+
+                    &lt;/td&gt;
+                    &lt;td&gt;
+                        <span style="color: #557799">&lt;%=</span>person<span style="color: #333333">.</span>position <span style="color: #557799">%&gt;</span>
+                    &lt;/td&gt;
+                    &lt;td class=&quot;d-flex align-items-center&quot;&gt;
+                        &lt;a style=&quot;padding: 3; height: 36px; margin-right: 6px ;&quot; href=&quot;people/<span style="color: #557799">&lt;%=</span> person<span style="color: #333333">.</span>id <span style="color: #557799">%&gt;</span> &quot;
+                            class=&quot;btn btn-outline-primary btn-rounded btn-sm &quot; data-mdb-ripple-color=&quot;dark&quot;&gt;
+                          View
+                        &lt;/a&gt;
+                        &lt;a style=&quot;padding: 3; margin-right: 6px; height: 36px;&quot;
+                            class=&quot;btn btn-outline-warning btn-rounded btn-sm &quot; data-mdb-ripple-color=&quot;dark&quot;&gt;
+                         Edit
+                        &lt;/a&gt;
+                        &lt;form style=&quot;border: 0; margin-top: 14px; &quot; action=&quot;/people/<span style="color: #557799">&lt;%=</span> person<span style="color: #333333">.</span>id <span style="color: #557799">%&gt;</span>?_method=DELETE&quot; method=&quot;post&quot;&gt;
+                            &lt;button style=&quot;height: 36px;&quot; class=&quot;btn btn-outline-danger btn-rounded btn-sm fw-bold&quot; data-mdb-r
+                                ipple-color=&quot;dark&quot;&gt;
+                               Delete
+                            &lt;/button&gt;
+                        &lt;/form&gt;
+                    &lt;/td&gt;
+                &lt;/tr&gt;
+                <span style="color: #557799">&lt;%</span>}); <span style="color: #557799">%&gt;</span>
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+&lt;/div&gt;
+</pre>
+</div>
