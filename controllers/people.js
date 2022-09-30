@@ -12,16 +12,19 @@ function index(req, res) {
   res.render("people/index", { title: "All people", people: people.getAll() });
 }
 function show(req, res) {
-  if(!(people.getOne(req.params.id))) res.redirect('/people')
+  if (!people.getOne(req.params.id)) res.redirect("/people");
   res.render("people/show", {
     title: "Details",
     person: people.getOne(req.params.id),
   });
 }
 function edit(req, res) {
-  if(!(people.getOne(req.params.id))) res.redirect('/people')
+  if (!people.getOne(req.params.id)) res.redirect("/people");
 
-  res.render("people/edit", { title: "Edit", person: people.getOne(req.params.id)});
+  res.render("people/edit", {
+    title: "Edit",
+    person: people.getOne(req.params.id),
+  });
 }
 function newPerson(req, res) {
   res.render("people/new", {});
@@ -33,10 +36,11 @@ function create(req, res) {
 }
 function deletePerson(req, res) {
   people.deleteOne(req.params.id);
-  res.redirect('/people')
+  res.redirect("/people");
 }
 
-
-function update(req,res) {
-
+function update(req, res) {
+  console.log(req.body);
+  people.update(req.params.id, req.body);
+  res.redirect(`/people/${req.params.id}`);
 }
