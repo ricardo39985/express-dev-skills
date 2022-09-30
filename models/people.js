@@ -10,7 +10,7 @@ const { faker } = require("@faker-js/faker");
 const { v4: uuidv4 } = require("uuid");
 const people = [];
 
-for (let i = 0; i < 100; i++) {
+for (let i = 0; i < 10; i++) {
   let person = {
     id: uuidv4(),
     firstName: faker.name.firstName(),
