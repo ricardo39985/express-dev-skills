@@ -3,6 +3,7 @@ module.exports = {
   getOne,
   create,
   deleteOne,
+  update
 };
 
 const { faker } = require("@faker-js/faker");
@@ -52,4 +53,13 @@ function create(newPersonObj) {
 function deleteOne(id) {
   let personIndex = people.findIndex((p) => p.id === id);
   people.splice(personIndex, 1);
+}
+
+function update(id, newDetails) {
+  let oldDetails = people.find((p) => p.id === id);
+  deleteOne(id);
+  people.push({
+    ...oldDetails,
+    ...newDetails,
+  });
 }
