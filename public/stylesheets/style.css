@@ -16,4 +16,9 @@ a {
       height: 600px;
     }
   }
-
+h3{
+  color: white;
+}
+.navbar-nav > li > a {
+  color: white;
+}
