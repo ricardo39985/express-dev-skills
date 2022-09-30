@@ -6,6 +6,7 @@ module.exports = {
   new: newPerson,
   create,
   delete: deletePerson,
+  update,
 };
 function index(req, res) {
   res.render("people/index", { title: "All people", people: people.getAll() });
@@ -18,7 +19,9 @@ function show(req, res) {
   });
 }
 function edit(req, res) {
-  res.render("people/edit", { title: "Edit" });
+  if(!(people.getOne(req.params.id))) res.redirect('/people')
+
+  res.render("people/edit", { title: "Edit", person: people.getOne(req.params.id)});
 }
 function newPerson(req, res) {
   res.render("people/new", {});
@@ -31,4 +34,9 @@ function create(req, res) {
 function deletePerson(req, res) {
   people.deleteOne(req.params.id);
   res.redirect('/people')
+}
+
+
+function update(req,res) {
+
 }
