@@ -1,140 +1,68 @@
 <div class=" d-flex">
-    <div>
-        <h3>People controller</h3>
-        <div>
-            <div
-                style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
-                <table>
-                    <tr>
-                        <td>
-                            <pre style="margin: 0; line-height: 125%"> 1
-  2
-  3
-  4
-  5
-  6
-  7
-  8
-  9
-  10
-  11
-  12
-  13
-  14
-  15
-  16
-  17
-  18
-  19
-  20
-  21
-  22
-  23
-  24
-  25
-  26
-  27
-  28
-  29
-  30
-  31
-  32
-  33
-  34
-  35
-  36
-  37
-  38
-  39
-  40
-  41
-  42
-  43
-  44
-  45</pre>
-                        </td>
-                        <td>
-                            <pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">const</span> <span style="color: #a6e22e">people</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;../models/people&quot;</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #a6e22e">module</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">exports</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
-   <span style="color: #a6e22e">index</span><span style="color: #f8f8f2">,</span>
-   <span style="color: #a6e22e">show</span><span style="color: #f8f8f2">,</span>
-   <span style="color: #a6e22e">edit</span><span style="color: #f8f8f2">,</span>
-   <span style="color: #66d9ef">new</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">newPerson</span><span style="color: #f8f8f2">,</span>
-   <span style="color: #a6e22e">create</span><span style="color: #f8f8f2">,</span>
-   <span style="color: #66d9ef">delete</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">deletePerson</span><span style="color: #f8f8f2">,</span>
-   <span style="color: #a6e22e">update</span><span style="color: #f8f8f2">,</span>
-  <span style="color: #f8f8f2">};</span>
-  <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">index</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-   <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">render</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;people/index&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">title</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;All people&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">people</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getAll</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">});</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">show</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-   <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">))</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">redirect</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;/people&quot;</span><span style="color: #f8f8f2">);</span>
-   <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">render</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;people/show&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span>
-     <span style="color: #a6e22e">title</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Details&quot;</span><span style="color: #f8f8f2">,</span>
-     <span style="color: #a6e22e">person</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">),</span>
-   <span style="color: #f8f8f2">});</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">edit</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-   <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">))</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">redirect</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;/people&quot;</span><span style="color: #f8f8f2">);</span>
+  <div>
+    <h3>Employees controller</h3>
+    <div
+      style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+      <pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">const</span> <span style="color: #a6e22e">Employee</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;../models/employee&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #a6e22e">module</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">exports</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">index</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #a6e22e">show</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #a6e22e">edit</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #66d9ef">new</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">newPerson</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #a6e22e">create</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #66d9ef">delete</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">deletePerson</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #a6e22e">update</span><span style="color: #f8f8f2">,</span>
+<span style="color: #f8f8f2">};</span>
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">index</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">render</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;employees/index&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">title</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;All employees&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">employees</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">Employee</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getAll</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">});</span>
+<span style="color: #f8f8f2">}</span>
 
-   <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">render</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;people/edit&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span>
-     <span style="color: #a6e22e">title</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&quot;Edit&quot;</span><span style="color: #f8f8f2">,</span>
-     <span style="color: #a6e22e">person</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">),</span>
-   <span style="color: #f8f8f2">});</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">newPerson</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-   <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">render</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;people/new&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{});</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">create</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-   <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">newEployeeId</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">create</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">body</span><span style="color: #f8f8f2">);</span>
-   <span style="color: #a6e22e">console</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">log</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">newEployeeId</span><span style="color: #f8f8f2">);</span>
-   <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">redirect</span><span style="color: #f8f8f2">(</span><span style="color: #960050; background-color: #1e0010">`</span><span style="color: #f92672">/</span><span style="color: #a6e22e">people</span><span style="color: #f92672">/</span><span style="color: #a6e22e">$</span><span style="color: #f8f8f2">{</span><span style="color: #a6e22e">newEployeeId</span><span style="color: #f8f8f2">}</span><span style="color: #960050; background-color: #1e0010">`</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
-  <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">deletePerson</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-   <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">deleteOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">);</span>
-   <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">redirect</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;/people&quot;</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">show</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #a6e22e">Employee</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">))</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">redirect</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;/employee&#39;</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">render</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;employees/show&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #a6e22e">title</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;Details&#39;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #a6e22e">person</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">Employee</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">),</span>
+  <span style="color: #f8f8f2">});</span>
+<span style="color: #f8f8f2">}</span>
 
-  <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">update</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-   <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">update</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">body</span><span style="color: #f8f8f2">);</span>
-   <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">redirect</span><span style="color: #f8f8f2">(</span><span style="color: #960050; background-color: #1e0010">`</span><span style="color: #f92672">/</span><span style="color: #a6e22e">people</span><span style="color: #f92672">/</span><span style="color: #a6e22e">$</span><span style="color: #f8f8f2">{</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">}</span><span style="color: #960050; background-color: #1e0010">`</span><span style="color: #f8f8f2">);</span>
-  <span style="color: #f8f8f2">}</span>
-  </pre>
-                        </td>
-                    </tr>
-                </table>
-            </div>
-        </div>
-        <h3>People Router</h3>
-        <div
-            style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
-            <table>
-                <tr>
-                    <td>
-                        <pre style="margin: 0; line-height: 125%"> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17</pre>
-                    </td>
-                    <td>
-                        <pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">const</span> <span style="color: #a6e22e">express</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;express&quot;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">edit</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">if</span> <span style="color: #f8f8f2">(</span><span style="color: #f92672">!</span><span style="color: #a6e22e">Employee</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">))</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">redirect</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;/employee&#39;</span><span style="color: #f8f8f2">);</span>
+
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">render</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;employees/edit&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #a6e22e">title</span><span style="color: #f92672">:</span> <span style="color: #e6db74">&#39;Edit&#39;</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #a6e22e">person</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">Employee</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">),</span>
+  <span style="color: #f8f8f2">});</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">newPerson</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">render</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;employees/new&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #f8f8f2">{});</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">create</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">newEployeeId</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">Employee</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">create</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">body</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">redirect</span><span style="color: #f8f8f2">(</span><span style="color: #960050; background-color: #1e0010">`</span><span style="color: #f92672">/</span><span style="color: #a6e22e">employees</span><span style="color: #f92672">/</span><span style="color: #a6e22e">$</span><span style="color: #f8f8f2">{</span><span style="color: #a6e22e">newEployeeId</span><span style="color: #f8f8f2">}</span><span style="color: #960050; background-color: #1e0010">`</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">deletePerson</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">Employee</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">deleteOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">redirect</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;/employees&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">update</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">Employee</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">update</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">body</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">redirect</span><span style="color: #f8f8f2">(</span><span style="color: #960050; background-color: #1e0010">`</span><span style="color: #f92672">/</span><span style="color: #a6e22e">employees</span><span style="color: #f92672">/</span><span style="color: #a6e22e">$</span><span style="color: #f8f8f2">{</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">params</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">}</span><span style="color: #960050; background-color: #1e0010">`</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
+</pre>
+    </div>
+
+    <h3>Employees Router</h3>
+    <!-- HTML generated using hilite.me -->
+    <div
+      style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+      <pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">const</span> <span style="color: #a6e22e">express</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;express&quot;</span><span style="color: #f8f8f2">);</span>
 <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">router</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">express</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">Router</span><span style="color: #f8f8f2">();</span>
-<span style="color: #66d9ef">const</span> <span style="color: #a6e22e">peopleCtrl</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;../controllers/people&quot;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">const</span> <span style="color: #a6e22e">peopleCtrl</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;../controllers/employees&quot;</span><span style="color: #f8f8f2">);</span>
 
-<span style="color: #75715e">/* GET index. */</span>
 <span style="color: #a6e22e">router</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;/&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">peopleCtrl</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">index</span><span style="color: #f8f8f2">);</span>
 <span style="color: #a6e22e">router</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;/new&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">peopleCtrl</span><span style="color: #f8f8f2">.</span><span style="color: #66d9ef">new</span><span style="color: #f8f8f2">);</span>
 <span style="color: #a6e22e">router</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;/:id&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">peopleCtrl</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">show</span><span style="color: #f8f8f2">);</span>
@@ -144,267 +72,139 @@
 <span style="color: #a6e22e">router</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;/:id/edit&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">peopleCtrl</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">edit</span><span style="color: #f8f8f2">);</span>
 <span style="color: #a6e22e">router</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">put</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;/:id&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">peopleCtrl</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">update</span><span style="color: #f8f8f2">);</span>
 
-
-
 <span style="color: #a6e22e">module</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">exports</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">router</span><span style="color: #f8f8f2">;</span>
 </pre>
-                    </td>
-                </tr>
-            </table>
-        </div>
     </div>
-    <div>
-        <h3>People Model</h3>
-        <div
-            style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
-            <table>
-                <tr>
-                    <td>
-                        <pre style="margin: 0; line-height: 125%"> 1
-     2
-     3
-     4
-     5
-     6
-     7
-     8
-     9
-    10
-    11
-    12
-    13
-    14
-    15
-    16
-    17
-    18
-    19
-    20
-    21
-    22
-    23
-    24
-    25
-    26
-    27
-    28
-    29
-    30
-    31
-    32
-    33
-    34
-    35
-    36
-    37
-    38
-    39
-    40
-    41
-    42
-    43
-    44
-    45
-    46
-    47
-    48
-    49
-    50
-    51
-    52
-    53
-    54
-    55
-    56
-    57
-    58
-    59
-    60
-    61
-    62
-    63
-    64
-    65</pre>
-                    </td>
-                    <td>
-                        <pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">module</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">exports</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #a6e22e">getAll</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #a6e22e">create</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #a6e22e">deleteOne</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #a6e22e">update</span>
-    <span style="color: #f8f8f2">};</span>
 
-    <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">faker</span> <span style="color: #f8f8f2">}</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;@faker-js/faker&quot;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">v4</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">uuidv4</span> <span style="color: #f8f8f2">}</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;uuid&quot;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">people</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[];</span>
+  </div>
+  <div>
+    <h3>Employees Model</h3>
+    <!-- HTML generated using hilite.me -->
+    <div
+      style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+      <pre style="margin: 0; line-height: 125%"><span style="color: #a6e22e">module</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">exports</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">getAll</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #a6e22e">create</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #a6e22e">deleteOne</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #a6e22e">update</span>
+<span style="color: #f8f8f2">};</span>
 
-    <span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">let</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">100</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">person</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">id</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">uuidv4</span><span style="color: #f8f8f2">(),</span>
-        <span style="color: #a6e22e">firstName</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">firstName</span><span style="color: #f8f8f2">(),</span>
-        <span style="color: #a6e22e">lastName</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">lastName</span><span style="color: #f8f8f2">(),</span>
-        <span style="color: #a6e22e">department</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">commerce</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">department</span><span style="color: #f8f8f2">(),</span>
-        <span style="color: #a6e22e">job</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">jobTitle</span><span style="color: #f8f8f2">(),</span>
-        <span style="color: #a6e22e">status</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;Online&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Offline&quot;</span><span style="color: #f8f8f2">][Math.</span><span style="color: #a6e22e">floor</span><span style="color: #f8f8f2">(Math.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)],</span>
-        <span style="color: #a6e22e">position</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;Senior&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Junior&quot;</span><span style="color: #f8f8f2">][Math.</span><span style="color: #a6e22e">floor</span><span style="color: #f8f8f2">(Math.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)],</span>
-        <span style="color: #a6e22e">image</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">people</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1234</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2345</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">),</span>
-        <span style="color: #a6e22e">phone</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">phone</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">number</span><span style="color: #f8f8f2">(),</span>
-        <span style="color: #a6e22e">employeeId</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">finance</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">account</span><span style="color: #f8f8f2">(),</span>
-      <span style="color: #f8f8f2">};</span>
-      <span style="color: #a6e22e">person</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">email</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">internet</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">email</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">person</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">firstName</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">person</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">lastName</span><span style="color: #f8f8f2">);</span>
-      <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">push</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">person</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">getAll</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">faker</span> <span style="color: #f8f8f2">}</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;@faker-js/faker&quot;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">const</span> <span style="color: #f8f8f2">{</span> <span style="color: #a6e22e">v4</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">uuidv4</span> <span style="color: #f8f8f2">}</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&quot;uuid&quot;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">const</span> <span style="color: #a6e22e">employees</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">[];</span>
 
-    <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">find</span><span style="color: #f8f8f2">((</span><span style="color: #a6e22e">person</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">=&gt;</span> <span style="color: #a6e22e">person</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">===</span> <span style="color: #a6e22e">id</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">}</span>
-    <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">create</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">newPersonObj</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">newPerson</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
-        <span style="color: #a6e22e">id</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">uuidv4</span><span style="color: #f8f8f2">(),</span>
-        <span style="color: #a6e22e">department</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">commerce</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">department</span><span style="color: #f8f8f2">(),</span>
-        <span style="color: #a6e22e">job</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">jobTitle</span><span style="color: #f8f8f2">(),</span>
-        <span style="color: #a6e22e">status</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;Online&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Offline&quot;</span><span style="color: #f8f8f2">][Math.</span><span style="color: #a6e22e">floor</span><span style="color: #f8f8f2">(Math.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)],</span>
-        <span style="color: #a6e22e">image</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">people</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1234</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2345</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">),</span>
-        <span style="color: #a6e22e">phone</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">phone</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">number</span><span style="color: #f8f8f2">(),</span>
-        <span style="color: #a6e22e">employeeId</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">finance</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">account</span><span style="color: #f8f8f2">(),</span>
-      <span style="color: #f8f8f2">};</span>
-      <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">push</span><span style="color: #f8f8f2">({</span>
-        <span style="color: #f8f8f2">...</span><span style="color: #a6e22e">newPerson</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #f8f8f2">...</span><span style="color: #a6e22e">newPersonObj</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #f8f8f2">});</span>
-      <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">[</span><span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">length</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">;</span>
-    <span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">for</span> <span style="color: #f8f8f2">(</span><span style="color: #66d9ef">let</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">=</span> <span style="color: #ae81ff">0</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span> <span style="color: #f92672">&lt;</span> <span style="color: #ae81ff">10</span><span style="color: #f8f8f2">;</span> <span style="color: #a6e22e">i</span><span style="color: #f92672">++</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">person</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #a6e22e">id</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">uuidv4</span><span style="color: #f8f8f2">(),</span>
+    <span style="color: #a6e22e">firstName</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">firstName</span><span style="color: #f8f8f2">(),</span>
+    <span style="color: #a6e22e">lastName</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">lastName</span><span style="color: #f8f8f2">(),</span>
+    <span style="color: #a6e22e">department</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">commerce</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">department</span><span style="color: #f8f8f2">(),</span>
+    <span style="color: #a6e22e">job</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">jobTitle</span><span style="color: #f8f8f2">(),</span>
+    <span style="color: #a6e22e">status</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;Online&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Offline&quot;</span><span style="color: #f8f8f2">][Math.</span><span style="color: #a6e22e">floor</span><span style="color: #f8f8f2">(Math.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)],</span>
+    <span style="color: #a6e22e">position</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;Senior&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Junior&quot;</span><span style="color: #f8f8f2">][Math.</span><span style="color: #a6e22e">floor</span><span style="color: #f8f8f2">(Math.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)],</span>
+    <span style="color: #a6e22e">image</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">people</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1234</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2345</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">),</span>
+    <span style="color: #a6e22e">phone</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">phone</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">number</span><span style="color: #f8f8f2">(),</span>
+    <span style="color: #a6e22e">employeeId</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">finance</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">account</span><span style="color: #f8f8f2">(),</span>
+  <span style="color: #f8f8f2">};</span>
+  <span style="color: #a6e22e">person</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">email</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">internet</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">email</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">person</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">firstName</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">person</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">lastName</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #a6e22e">employees</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">push</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">person</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">getAll</span><span style="color: #f8f8f2">()</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">employees</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
 
-    <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">deleteOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">personIndex</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">findIndex</span><span style="color: #f8f8f2">((</span><span style="color: #a6e22e">p</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">=&gt;</span> <span style="color: #a6e22e">p</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">===</span> <span style="color: #a6e22e">id</span><span style="color: #f8f8f2">);</span>
-      <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">splice</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">personIndex</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">getOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">employees</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">find</span><span style="color: #f8f8f2">((</span><span style="color: #a6e22e">person</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">=&gt;</span> <span style="color: #a6e22e">person</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">===</span> <span style="color: #a6e22e">id</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">create</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">newPersonObj</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">newPerson</span> <span style="color: #f92672">=</span> <span style="color: #f8f8f2">{</span>
+    <span style="color: #a6e22e">id</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">uuidv4</span><span style="color: #f8f8f2">(),</span>
+    <span style="color: #a6e22e">department</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">commerce</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">department</span><span style="color: #f8f8f2">(),</span>
+    <span style="color: #a6e22e">job</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">name</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">jobTitle</span><span style="color: #f8f8f2">(),</span>
+    <span style="color: #a6e22e">status</span><span style="color: #f92672">:</span> <span style="color: #f8f8f2">[</span><span style="color: #e6db74">&quot;Online&quot;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&quot;Offline&quot;</span><span style="color: #f8f8f2">][Math.</span><span style="color: #a6e22e">floor</span><span style="color: #f8f8f2">(Math.</span><span style="color: #a6e22e">random</span><span style="color: #f8f8f2">()</span> <span style="color: #f92672">*</span> <span style="color: #ae81ff">2</span><span style="color: #f8f8f2">)],</span>
+    <span style="color: #a6e22e">image</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">image</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">people</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">1234</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">2345</span><span style="color: #f8f8f2">,</span> <span style="color: #66d9ef">true</span><span style="color: #f8f8f2">),</span>
+    <span style="color: #a6e22e">phone</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">phone</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">number</span><span style="color: #f8f8f2">(),</span>
+    <span style="color: #a6e22e">employeeId</span><span style="color: #f92672">:</span> <span style="color: #a6e22e">faker</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">finance</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">account</span><span style="color: #f8f8f2">(),</span>
+  <span style="color: #f8f8f2">};</span>
+  <span style="color: #a6e22e">employees</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">push</span><span style="color: #f8f8f2">({</span>
+    <span style="color: #f8f8f2">...</span><span style="color: #a6e22e">newPerson</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #f8f8f2">...</span><span style="color: #a6e22e">newPersonObj</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #f8f8f2">});</span>
+  <span style="color: #66d9ef">return</span> <span style="color: #a6e22e">employees</span><span style="color: #f8f8f2">[</span><span style="color: #a6e22e">employees</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">length</span> <span style="color: #f92672">-</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">].</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">;</span>
+<span style="color: #f8f8f2">}</span>
 
-    <span style="color: #66d9ef">function</span> <span style="color: #a6e22e">update</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">newDetails</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">oldDetails</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">find</span><span style="color: #f8f8f2">((</span><span style="color: #a6e22e">p</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">=&gt;</span> <span style="color: #a6e22e">p</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">===</span> <span style="color: #a6e22e">id</span><span style="color: #f8f8f2">);</span>
-      <span style="color: #a6e22e">deleteOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">);</span>
-      <span style="color: #a6e22e">people</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">push</span><span style="color: #f8f8f2">({</span>
-        <span style="color: #f8f8f2">...</span><span style="color: #a6e22e">oldDetails</span><span style="color: #f8f8f2">,</span>
-        <span style="color: #f8f8f2">...</span><span style="color: #a6e22e">newDetails</span><span style="color: #f8f8f2">,</span>
-      <span style="color: #f8f8f2">});</span>
-    <span style="color: #f8f8f2">}</span>
-    </pre>
-                    </td>
-                </tr>
-            </table>
-        </div>
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">deleteOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">personIndex</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">employees</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">findIndex</span><span style="color: #f8f8f2">((</span><span style="color: #a6e22e">p</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">=&gt;</span> <span style="color: #a6e22e">p</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">===</span> <span style="color: #a6e22e">id</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #a6e22e">employees</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">splice</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">personIndex</span><span style="color: #f8f8f2">,</span> <span style="color: #ae81ff">1</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">}</span>
+
+<span style="color: #66d9ef">function</span> <span style="color: #a6e22e">update</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">newDetails</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #66d9ef">let</span> <span style="color: #a6e22e">oldDetails</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">employees</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">find</span><span style="color: #f8f8f2">((</span><span style="color: #a6e22e">p</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">=&gt;</span> <span style="color: #a6e22e">p</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">id</span> <span style="color: #f92672">===</span> <span style="color: #a6e22e">id</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #a6e22e">deleteOne</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">id</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #a6e22e">employees</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">push</span><span style="color: #f8f8f2">({</span>
+    <span style="color: #f8f8f2">...</span><span style="color: #a6e22e">oldDetails</span><span style="color: #f8f8f2">,</span>
+    <span style="color: #f8f8f2">...</span><span style="color: #a6e22e">newDetails</span><span style="color: #f8f8f2">,</span>
+  <span style="color: #f8f8f2">});</span>
+<span style="color: #f8f8f2">}</span>
+</pre>
     </div>
-    <div>
-        <h3>App Entry Point</h3>
-        <div
-            style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
-            <table>
-                <tr>
-                    <td>
-                        <pre style="margin: 0; line-height: 125%"> 1
-     2
-     3
-     4
-     5
-     6
-     7
-     8
-     9
-    10
-    11
-    12
-    13
-    14
-    15
-    16
-    17
-    18
-    19
-    20
-    21
-    22
-    23
-    24
-    25
-    26
-    27
-    28
-    29
-    30
-    31
-    32
-    33
-    34
-    35
-    36
-    37
-    38
-    39
-    40
-    41
-    42
-    43
-    44
-    45
-    46</pre>
-                    </td>
-                    <td>
-                        <pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">var</span> <span style="color: #a6e22e">createError</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;http-errors&#39;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">express</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;express&#39;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">path</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;path&#39;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">cookieParser</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;cookie-parser&#39;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">logger</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;morgan&#39;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">methodOverride</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;method-override&#39;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">indexRouter</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;./routes/index&#39;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #66d9ef">const</span> <span style="color: #a6e22e">peopleRouter</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;./routes/people&#39;</span><span style="color: #f8f8f2">);</span>
+
+  </div>
+  <div>
+    <h3>App Entry Point</h3>
+    <!-- HTML generated using hilite.me -->
+    <div
+      style="background: #272822; overflow:auto;width:auto;border:solid gray;border-width:.1em .1em .1em .8em;padding:.2em .6em;">
+      <pre style="margin: 0; line-height: 125%"><span style="color: #66d9ef">var</span> <span style="color: #a6e22e">createError</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;http-errors&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">express</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;express&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">path</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;path&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">cookieParser</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;cookie-parser&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">logger</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;morgan&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">const</span> <span style="color: #a6e22e">methodOverride</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;method-override&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">indexRouter</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;./routes/index&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #66d9ef">const</span> <span style="color: #a6e22e">employeesRouter</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">require</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;./routes/employees&#39;</span><span style="color: #f8f8f2">);</span>
 
 
-    <span style="color: #66d9ef">var</span> <span style="color: #a6e22e">app</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">express</span><span style="color: #f8f8f2">();</span>
-    <span style="color: #75715e">// import bootstrap</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;/css&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">express</span><span style="color: #f8f8f2">.</span><span style="color: #66d9ef">static</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">__dirname</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&#39;/node_modules/bootstrap/dist/css&#39;</span><span style="color: #f8f8f2">));</span>
+<span style="color: #66d9ef">var</span> <span style="color: #a6e22e">app</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">express</span><span style="color: #f8f8f2">();</span>
+<span style="color: #75715e">// import bootstrap</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;/css&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">express</span><span style="color: #f8f8f2">.</span><span style="color: #66d9ef">static</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">__dirname</span> <span style="color: #f92672">+</span> <span style="color: #e6db74">&#39;/node_modules/bootstrap/dist/css&#39;</span><span style="color: #f8f8f2">));</span>
 
-    <span style="color: #75715e">// view engine setup</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">set</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;views&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">path</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">join</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">__dirname</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;views&#39;</span><span style="color: #f8f8f2">));</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">set</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;view engine&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;ejs&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #75715e">// view engine setup</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">set</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;views&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">path</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">join</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">__dirname</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;views&#39;</span><span style="color: #f8f8f2">));</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">set</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;view engine&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;ejs&#39;</span><span style="color: #f8f8f2">);</span>
 
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">logger</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;dev&#39;</span><span style="color: #f8f8f2">));</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">express</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">json</span><span style="color: #f8f8f2">());</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">express</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">urlencoded</span><span style="color: #f8f8f2">({</span> <span style="color: #a6e22e">extended</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span> <span style="color: #f8f8f2">}));</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">cookieParser</span><span style="color: #f8f8f2">());</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">express</span><span style="color: #f8f8f2">.</span><span style="color: #66d9ef">static</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">path</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">join</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">__dirname</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;public&#39;</span><span style="color: #f8f8f2">)));</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">methodOverride</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;_method&#39;</span><span style="color: #f8f8f2">))</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">logger</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;dev&#39;</span><span style="color: #f8f8f2">));</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">express</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">json</span><span style="color: #f8f8f2">());</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">express</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">urlencoded</span><span style="color: #f8f8f2">({</span> <span style="color: #a6e22e">extended</span><span style="color: #f92672">:</span> <span style="color: #66d9ef">false</span> <span style="color: #f8f8f2">}));</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">cookieParser</span><span style="color: #f8f8f2">());</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">express</span><span style="color: #f8f8f2">.</span><span style="color: #66d9ef">static</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">path</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">join</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">__dirname</span><span style="color: #f8f8f2">,</span> <span style="color: #e6db74">&#39;public&#39;</span><span style="color: #f8f8f2">)));</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">methodOverride</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;_method&#39;</span><span style="color: #f8f8f2">))</span>
 
 
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;/&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">indexRouter</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;/people&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">peopleRouter</span><span style="color: #f8f8f2">)</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;/&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">indexRouter</span><span style="color: #f8f8f2">);</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;/employees&#39;</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">employeesRouter</span><span style="color: #f8f8f2">)</span>
 
-    <span style="color: #75715e">// catch 404 and forward to error handler</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">next</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #a6e22e">next</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">createError</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">404</span><span style="color: #f8f8f2">));</span>
-    <span style="color: #f8f8f2">});</span>
+<span style="color: #75715e">// catch 404 and forward to error handler</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">next</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #a6e22e">next</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">createError</span><span style="color: #f8f8f2">(</span><span style="color: #ae81ff">404</span><span style="color: #f8f8f2">));</span>
+<span style="color: #f8f8f2">});</span>
 
-    <span style="color: #75715e">// error handler</span>
-    <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">err</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">next</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
-      <span style="color: #75715e">// set locals, only providing error in development</span>
-      <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">locals</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">message</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">err</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">message</span><span style="color: #f8f8f2">;</span>
-      <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">locals</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">error</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;env&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">===</span> <span style="color: #e6db74">&#39;development&#39;</span> <span style="color: #f92672">?</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">{};</span>
+<span style="color: #75715e">// error handler</span>
+<span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">use</span><span style="color: #f8f8f2">(</span><span style="color: #66d9ef">function</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">err</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">req</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">,</span> <span style="color: #a6e22e">next</span><span style="color: #f8f8f2">)</span> <span style="color: #f8f8f2">{</span>
+  <span style="color: #75715e">// set locals, only providing error in development</span>
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">locals</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">message</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">err</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">message</span><span style="color: #f8f8f2">;</span>
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">locals</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">error</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">req</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">app</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">get</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;env&#39;</span><span style="color: #f8f8f2">)</span> <span style="color: #f92672">===</span> <span style="color: #e6db74">&#39;development&#39;</span> <span style="color: #f92672">?</span> <span style="color: #a6e22e">err</span> <span style="color: #f92672">:</span> <span style="color: #f8f8f2">{};</span>
 
-      <span style="color: #75715e">// render the error page</span>
-      <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">status</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">err</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">status</span> <span style="color: #f92672">||</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">);</span>
-      <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">render</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;error&#39;</span><span style="color: #f8f8f2">);</span>
-    <span style="color: #f8f8f2">});</span>
+  <span style="color: #75715e">// render the error page</span>
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">status</span><span style="color: #f8f8f2">(</span><span style="color: #a6e22e">err</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">status</span> <span style="color: #f92672">||</span> <span style="color: #ae81ff">500</span><span style="color: #f8f8f2">);</span>
+  <span style="color: #a6e22e">res</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">render</span><span style="color: #f8f8f2">(</span><span style="color: #e6db74">&#39;error&#39;</span><span style="color: #f8f8f2">);</span>
+<span style="color: #f8f8f2">});</span>
 
-    <span style="color: #a6e22e">module</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">exports</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">;</span>
-    </pre>
-                    </td>
-                </tr>
-            </table>
-        </div>
-
+<span style="color: #a6e22e">module</span><span style="color: #f8f8f2">.</span><span style="color: #a6e22e">exports</span> <span style="color: #f92672">=</span> <span style="color: #a6e22e">app</span><span style="color: #f8f8f2">;</span>
+</pre>
     </div>
+
+  </div>
 
 </div>
