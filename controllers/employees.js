@@ -35,7 +35,6 @@ function newPerson(req, res) {
 
 function create(req, res) {
   let newEployeeId = Employee.create(req.body);
-  console.log(newEployeeId);
   res.redirect(`/employees/${newEployeeId}`);
 }
 
