@@ -77,7 +77,6 @@
 :heavy_check_mark: Full Crud Functionality\
 :heavy_check_mark: MVC\
 :heavy_check_mark: Bootstrap Styling\
-:heavy_check_mark: Card rendering
 
 ## :rocket: Technologies
 
