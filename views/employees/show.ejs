@@ -80,19 +80,19 @@
     <div class="container">
         <div class="row justify-content-end">
             <div class="col col-lg-2">
-                <form action="/people/<%= person.id %>?_method=DELETE" method="post">
+                <form action="/employees/<%= person.id %>?_method=DELETE" method="post">
                     <button class="btn btn-outline-danger btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
                         delete
                     </button>
                 </form>
             </div>
             <div class="col col-lg-2">
-                <a href="/people/<%= person.id %>/edit " class="btn btn-outline-warning btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
+                <a href="/employees/<%= person.id %>/edit " class="btn btn-outline-warning btn-rounded btn-sm fw-bold" data-mdb-ripple-color="dark">
                     Edit
                 </a>
             </div>
             <div class="col-md-auto">
-                <a href="/people" class="btn btn-outline-primary btn-rounded btn-sm fw-bold"
+                <a href="/employees" class="btn btn-outline-primary btn-rounded btn-sm fw-bold"
                     data-mdb-ripple-color="dark">
                     Back
                 </a>

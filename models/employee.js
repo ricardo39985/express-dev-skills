@@ -8,7 +8,7 @@ module.exports = {
 
 const { faker } = require("@faker-js/faker");
 const { v4: uuidv4 } = require("uuid");
-const people = [];
+const employees = [];
 
 for (let i = 0; i < 10; i++) {
   let person = {
@@ -24,14 +24,14 @@ for (let i = 0; i < 10; i++) {
     employeeId: faker.finance.account(),
   };
   person.email = faker.internet.email(person.firstName, person.lastName);
-  people.push(person);
+  employees.push(person);
 }
 function getAll() {
-  return people;
+  return employees;
 }
 
 function getOne(id) {
-  return people.find((person) => person.id === id);
+  return employees.find((person) => person.id === id);
 }
 function create(newPersonObj) {
   let newPerson = {
@@ -43,22 +43,22 @@ function create(newPersonObj) {
     phone: faker.phone.number(),
     employeeId: faker.finance.account(),
   };
-  people.push({
+  employees.push({
     ...newPerson,
     ...newPersonObj,
   });
-  return people[people.length - 1].id;
+  return employees[employees.length - 1].id;
 }
 
 function deleteOne(id) {
-  let personIndex = people.findIndex((p) => p.id === id);
-  people.splice(personIndex, 1);
+  let personIndex = employees.findIndex((p) => p.id === id);
+  employees.splice(personIndex, 1);
 }
 
 function update(id, newDetails) {
-  let oldDetails = people.find((p) => p.id === id);
+  let oldDetails = employees.find((p) => p.id === id);
   deleteOne(id);
-  people.push({
+  employees.push({
     ...oldDetails,
     ...newDetails,
   });

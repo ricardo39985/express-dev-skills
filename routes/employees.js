@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const peopleCtrl = require("../controllers/people");
+const peopleCtrl = require("../controllers/employees");
 
 /* GET index. */
 router.get("/", peopleCtrl.index);
