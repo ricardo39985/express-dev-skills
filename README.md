@@ -68,7 +68,7 @@
   <img src="public/images/code.png">
 
 ## :dart: About
-
+Project to solidify understanding of CRUD and RESTful conventions. Features RESTful routing and crud functionality.
 
 
 ## :sparkles: Features
