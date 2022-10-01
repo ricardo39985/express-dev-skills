@@ -5,7 +5,7 @@
   color: #222;
   letter-spacing: 1px;
   font-family:  serif;
-  font-weight: 400;">War Card Game</h1>
+  font-weight: 400;">Express Lab</h1>
 
 <p align="center">
   <a href="#camer_flash-screenshot">Screenshots</a> &#xa0; | &#xa0;
@@ -63,7 +63,6 @@
 
 ## :camera_flash: Screenshot
 
-  <img src="public/images/instructions.png" width="" /><br>
   <img src="public/images/Screenshot from 2022-09-30 19-19-29.png" width="" /><br>
   <img src="public/images/Screenshot from 2022-09-30 19-19-09.png" width="" />
   <img src="public/images/code.png">
