@@ -13,7 +13,7 @@ function index(req, res) {
 }
 
 function show(req, res) {
-  if (!Employee.getOne(req.params.id)) res.redirect('/employee');
+  if (!Employee.getOne(req.params.id)) res.redirect('/employees');
   res.render('employees/show', {
     title: 'Details',
     person: Employee.getOne(req.params.id),
@@ -21,7 +21,7 @@ function show(req, res) {
 }
 
 function edit(req, res) {
-  if (!Employee.getOne(req.params.id)) res.redirect('/employee');
+  if (!Employee.getOne(req.params.id)) res.redirect('/employees');
 
   res.render('employees/edit', {
     title: 'Edit',
